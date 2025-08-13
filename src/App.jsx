@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Phone, Download, Home, User, Briefcase, FolderOpen, Code2 } from 'lucide-react';
+import { Github, Linkedin, Mail, Phone, Home, User, Briefcase, FolderOpen, Code2 } from 'lucide-react';
 
 // Custom hook for typewriter effect
 const useTypewriter = (texts, speed = 150, delay = 2000) => {
@@ -57,12 +56,7 @@ const VerticalNav = () => {
   };
 
   return (
-    <motion.nav 
-      className="nav-container"
-      initial={{ x: 100, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      transition={{ duration: 0.6 }}
-    >
+    <nav className="nav-container">
       <div className="nav-buttons">
         {navItems.map((item) => (
           <button
@@ -75,7 +69,7 @@ const VerticalNav = () => {
           </button>
         ))}
       </div>
-    </motion.nav>
+    </nav>
   );
 };
 
@@ -84,66 +78,26 @@ const Hero = () => {
   const roles = ['Fullstack Engineer', 'Software Developer', 'AI/ML Engineer', 'Data Engineer'];
   const currentRole = useTypewriter(roles);
 
-  const downloadCV = () => {
-    const link = document.createElement('a');
-    link.href = '/resume.pdf';
-    link.download = 'Resume_ShreyaWatve.pdf';
-    link.click();
-  };
-
   return (
     <section id="home" className="hero-section">
       <div className="hero-overlay"></div>
       
-      <motion.div 
-        className="hero-content"
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      >
-        <motion.h2 
-          className="hero-greeting"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2 }}
-        >
+      <div className="hero-content">
+        <h2 className="hero-greeting">
           Hello! I am
-        </motion.h2>
+        </h2>
         
-        <motion.h1 
-          className="hero-name"
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.4 }}
-        >
+        <h1 className="hero-name">
           Shreya
-        </motion.h1>
+        </h1>
         
-        <motion.div 
-          className="hero-role"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.6 }}
-        >
+        <div className="hero-role">
           <span>
             {currentRole}
             <span className="typewriter-cursor">|</span>
           </span>
-        </motion.div>
-        
-        <motion.button
-          onClick={downloadCV}
-          className="download-button"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.8 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <Download size={20} />
-          Download CV
-        </motion.button>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 };
@@ -180,32 +134,13 @@ const Projects = () => {
   return (
     <section id="projects" className="section bg-white-light">
       <div className="section-content">
-        <motion.h2 
-          className="section-title"
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
+        <h2 className="section-title left-aligned">
           Projects
-        </motion.h2>
+        </h2>
         
-        <motion.div 
-          className="projects-container"
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
+        <div className="projects-container">
           {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              className="project-card"
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
+            <div key={index} className="project-card">
               <div className="project-image">
                 <img src={project.image} alt={project.title} className="project-img" />
               </div>
@@ -223,9 +158,9 @@ const Projects = () => {
                 
                 <p className="project-description">{project.description}</p>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -235,24 +170,12 @@ const Projects = () => {
 const Section = ({ id, title, children, bgClass = "bg-white-light" }) => (
   <section id={id} className={`section ${bgClass}`}>
     <div className="section-content">
-      <motion.h2 
-        className="section-title"
-        initial={{ y: 50, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-      >
-        #{title}
-      </motion.h2>
-      <motion.div 
-        className="section-text"
-        initial={{ y: 30, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        viewport={{ once: true }}
-      >
+      <h2 className="section-title left-aligned">
+        {title}
+      </h2>
+      <div className="section-text">
         {children}
-      </motion.div>
+      </div>
     </div>
   </section>
 );
@@ -302,59 +225,27 @@ const TechStack = () => {
   return (
     <section id="techstack" className="section bg-blue-light">
       <div className="section-content">
-        <motion.h2 
-          className="section-title"
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
+        <h2 className="section-title left-aligned">
           My Tech Stack
-        </motion.h2>
+        </h2>
         
-        <motion.div 
-          className="tech-categories"
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
+        <div className="tech-categories">
           {techCategories.map((category, categoryIndex) => (
-            <motion.div
-              key={categoryIndex}
-              className="tech-category"
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
-              viewport={{ once: true }}
-            >
+            <div key={categoryIndex} className="tech-category">
               <h3 className="category-title">{category.category}</h3>
               <div className="tech-grid">
                 {category.technologies.map((tech, techIndex) => (
-                  <motion.div
-                    key={techIndex}
-                    className="tech-item"
-                    initial={{ scale: 0, opacity: 0 }}
-                    whileInView={{ scale: 1, opacity: 1 }}
-                    transition={{ 
-                      duration: 0.4, 
-                      delay: categoryIndex * 0.1 + techIndex * 0.05,
-                      type: "spring",
-                      stiffness: 100
-                    }}
-                    viewport={{ once: true }}
-                    whileHover={{ scale: 1.1, y: -5 }}
-                  >
+                  <div key={techIndex} className="tech-item">
                     <div className="tech-icon">
                       <img src={tech.icon} alt={tech.name} />
                     </div>
                     <span className="tech-name">{tech.name}</span>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -403,32 +294,13 @@ const Experience = () => {
   return (
     <section id="experience" className="section bg-white-light">
       <div className="section-content">
-        <motion.h2 
-          className="section-title"
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
+        <h2 className="section-title left-aligned">
           Experience
-        </motion.h2>
+        </h2>
         
-        <motion.div 
-          className="experience-grid"
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
+        <div className="experience-grid">
           {experiences.map((exp, index) => (
-            <motion.div
-              key={index}
-              className="experience-card"
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
+            <div key={index} className="experience-card">
               <div className="company-logo">
                 <img src={exp.logo} alt={exp.company} className="logo-image" />
               </div>
@@ -448,9 +320,9 @@ const Experience = () => {
                   </p>
                 ))}
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -460,23 +332,11 @@ const Experience = () => {
 const AboutMe = () => (
   <section id="about" className="section bg-blue-light">
     <div className="section-content">
-      <motion.h2 
-        className="section-title"
-        initial={{ y: 50, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-      >
+      <h2 className="section-title left-aligned">
         About Me
-      </motion.h2>
+      </h2>
       
-      <motion.div 
-        className="about-container"
-        initial={{ y: 30, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        viewport={{ once: true }}
-      >
+      <div className="about-container">
         <div className="about-photo">
           <img src="/photo123.png" alt="Shreya Watve" className="profile-image" />
         </div>
@@ -484,26 +344,26 @@ const AboutMe = () => (
         <div className="about-content">
           <div className="about-text">
             <p>
-              I'm a <span className="highlight">Fullstack Engineer</span> with <span className="highlight">4+ years of experience</span> specializing in 
-              <span className="highlight"> Angular, React, and Python</span>. I love turning ambitious product visions into 
-              <span className="highlight">scalable tech platforms</span> that transform entire industries.
+              I'm a <span className="highlight">Fullstack Engineer</span> with <span className="highlight">4+ years of experience</span> specializing in
+              <span className="highlight"> Angular, React, and Python</span>. I love turning ambitious product visions into
+              <span className="highlight"> scalable tech platforms</span> that transform entire industries.
             </p>
             
             <p>
-              Currently pursuing my <span className="highlight">Master's in Computer Science at Purdue University</span>, 
-              I've led full-stack development for <span className="highlight">B2B platforms serving 10,000+ users</span> with 
-              <span className="highlight">99.9% uptime</span>. My expertise spans from enterprise SaaS platforms to 
-              <span className="highlight">AI-powered workflow automation</span>.
+              With my <span className="highlight">Master's in Computer Science from Purdue University</span>, 
+              I've led full-stack development for <span className="highlight">B2B platforms serving 10,000+ users</span> with
+              <span className="highlight"> 99.9% uptime</span>. My expertise spans from enterprise SaaS platforms to
+              <span className="highlight"> AI-powered workflow automation</span>.
             </p>
             
             <p>
               I don't just build features—I create the <span className="highlight">foundational systems</span> that give startups 
-              their competitive edge in fast-moving markets. My work has compressed complex workflows 
-              <span className="highlight">from months to days</span>, helping businesses achieve unprecedented efficiency.
+              their competitive edge in fast-moving markets. My work has compressed complex workflows
+              <span className="highlight"> from months to days</span>, helping businesses achieve unprecedented efficiency.
             </p>
           </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   </section>
 );
@@ -520,37 +380,23 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <motion.div 
-          className="social-links"
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
+        <div className="social-links">
           {socialLinks.map((social) => (
-            <motion.a
+            <a
               key={social.label}
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
               className="social-link"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
             >
               <social.icon />
-            </motion.a>
+            </a>
           ))}
-        </motion.div>
+        </div>
         
-        <motion.p 
-          className="footer-text"
-          initial={{ y: 20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
+        <p className="footer-text">
           Created By Shreya Watve | 2025 All rights reserved.
-        </motion.p>
+        </p>
       </div>
     </footer>
   );
@@ -560,6 +406,28 @@ const Footer = () => {
 const App = () => {
   return (
     <div>
+      <style jsx>{`
+        .hero-name {
+          font-size: 4.5rem;
+        }
+        
+        .left-aligned {
+          text-align: left;
+        }
+        
+        @media (min-width: 768px) {
+          .hero-name {
+            font-size: 5.5rem;
+          }
+        }
+        
+        @media (min-width: 1024px) {
+          .hero-name {
+            font-size: 6.5rem;
+          }
+        }
+      `}</style>
+      
       <VerticalNav />
       
       <Hero />
