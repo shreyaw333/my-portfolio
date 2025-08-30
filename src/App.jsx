@@ -128,6 +128,12 @@ const Projects = () => {
       technologies: ["Apache Airflow", "AWS", "QuickSight", "Python"],
       description: "Built production-grade data pipeline using Apache Airflow, AWS, and QuickSight to automate Reddit data extraction, enabling real-time trend detection and sentiment analysis through interactive dashboards",
       image: "/reddit.png"
+    },
+    {
+      title: "ML Pipeline for Social Media Analytics",
+      technologies: ["Apache Airflow", "Spark", "TensorFlow", "Kubernetes"],
+      description: "Built fault-tolerant ML pipeline processing social media data for sentiment analysis and trend detection. Implemented feature engineering workflows and model versioning system. Designed auto-scaling infrastructure handling variable traffic loads with cost optimization",
+      image: "/ml-pipeline.png"
     }
   ];
 
@@ -413,6 +419,136 @@ const App = () => {
         
         .left-aligned {
           text-align: left;
+        }
+        
+        /* New 3-column grid layout for projects */
+        .projects-container {
+          max-width: 1400px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 2rem;
+          align-items: start;
+        }
+        
+        .project-card {
+          display: flex;
+          flex-direction: column;
+          background: rgba(255, 255, 255, 0.9);
+          border-radius: 20px;
+          padding: 2rem;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.8);
+          transition: all 0.3s ease;
+          height: 100%;
+        }
+        
+        .project-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .project-image {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 1.5rem;
+        }
+        
+        .project-img {
+          width: 120px;
+          height: 120px;
+          object-fit: contain;
+          border-radius: 16px;
+          background: rgba(255, 255, 255, 0.8);
+          padding: 1rem;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+          border: 2px solid rgba(37, 99, 235, 0.1);
+        }
+        
+        .project-content {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          text-align: center;
+          flex-grow: 1;
+        }
+        
+        .project-title {
+          font-size: 1.1rem;
+          font-weight: bold;
+          color: #1e3a8a;
+          margin: 0;
+          line-height: 1.3;
+        }
+        
+        .project-technologies {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem;
+          justify-content: center;
+        }
+        
+        .tech-tag {
+          background: linear-gradient(135deg, #2563eb, #3b82f6);
+          color: white;
+          padding: 0.3rem 0.6rem;
+          border-radius: 16px;
+          font-size: 0.75rem;
+          font-weight: 500;
+          box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+          transition: all 0.2s ease;
+        }
+        
+        .tech-tag:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 12px rgba(37, 99, 235, 0.4);
+        }
+        
+        .project-description {
+          font-size: 0.9rem;
+          color: #374151;
+          line-height: 1.6;
+          margin: 0;
+          text-align: left;
+          flex-grow: 1;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+          .projects-container {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+          }
+        }
+        
+        @media (max-width: 768px) {
+          .projects-container {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+          }
+          
+          .project-card {
+            padding: 1.5rem;
+          }
+          
+          .project-img {
+            width: 100px;
+            height: 100px;
+          }
+          
+          .project-title {
+            font-size: 1rem;
+          }
+          
+          .tech-tag {
+            font-size: 0.7rem;
+            padding: 0.25rem 0.5rem;
+          }
+          
+          .project-description {
+            font-size: 0.85rem;
+          }
         }
         
         @media (min-width: 768px) {
