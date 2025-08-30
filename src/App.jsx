@@ -133,7 +133,7 @@ const Projects = () => {
       title: "ML Pipeline for Social Media Analytics",
       technologies: ["Apache Airflow", "Spark", "TensorFlow", "Kubernetes"],
       description: "Built fault-tolerant ML pipeline processing social media data for sentiment analysis and trend detection. Implemented feature engineering workflows and model versioning system. Designed auto-scaling infrastructure handling variable traffic loads with cost optimization",
-      image: "/ml-pipeline.png"
+      image: "/instagram.jpeg"
     }
   ];
 
