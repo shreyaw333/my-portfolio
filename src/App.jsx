@@ -173,44 +173,47 @@ const Projects = () => {
         <div className="projects-container">
           {projects.map((project, index) => (
             <div key={index} className="project-card">
-              <div className="project-header">
+              <div className="project-layout">
                 <div className="project-image">
                   <img src={project.image} alt={project.title} className="project-img" />
                 </div>
-                <div className="project-title-section">
-                  <h3 className="project-title">{project.title}</h3>
-                  <div className="project-links">
-                    <button 
-                      className="project-link-btn"
-                      onClick={() => project.github && window.open(project.github, '_blank')}
-                      title="View on GitHub"
-                      disabled={!project.github}
-                    >
-                      <Github size={18} />
-                    </button>
-                    <button 
-                      className="project-link-btn"
-                      onClick={() => project.demo && window.open(project.demo, '_blank')}
-                      title="View Live Demo"
-                      disabled={!project.demo}
-                    >
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="m9 18 6-6-6-6"/>
-                      </svg>
-                    </button>
+                
+                <div className="project-right-content">
+                  <div className="project-header">
+                    <h3 className="project-title">{project.title}</h3>
+                    <div className="project-links">
+                      <button 
+                        className="project-link-btn"
+                        onClick={() => project.github && window.open(project.github, '_blank')}
+                        title="View on GitHub"
+                        disabled={!project.github}
+                      >
+                        <Github size={18} />
+                      </button>
+                      <button 
+                        className="project-link-btn"
+                        onClick={() => project.demo && window.open(project.demo, '_blank')}
+                        title="View Live Demo"
+                        disabled={!project.demo}
+                      >
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="m9 18 6-6-6-6"/>
+                        </svg>
+                      </button>
+                    </div>
                   </div>
+                  
+                  <div className="project-technologies">
+                    {project.technologies.map((tech, techIndex) => (
+                      <span key={techIndex} className="tech-tag">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  <p className="project-description">{project.description}</p>
                 </div>
               </div>
-              
-              <div className="project-technologies">
-                {project.technologies.map((tech, techIndex) => (
-                  <span key={techIndex} className="tech-tag">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              
-              <p className="project-description">{project.description}</p>
             </div>
           ))}
         </div>
