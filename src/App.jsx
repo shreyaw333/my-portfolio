@@ -468,12 +468,12 @@ const App = () => {
           text-align: left;
         }
         
-        /* New 3-column grid layout for projects */
+        /* New horizontal layout for projects */
         .projects-container {
           max-width: 1400px;
           margin: 0 auto;
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(2, 1fr);
           gap: 2rem;
           align-items: start;
         }
@@ -495,30 +495,33 @@ const App = () => {
           box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
         }
         
-        .project-image {
+        .project-header {
           display: flex;
-          justify-content: center;
-          align-items: center;
+          align-items: flex-start;
+          gap: 1.5rem;
           margin-bottom: 1.5rem;
         }
         
+        .project-image {
+          flex-shrink: 0;
+        }
+        
         .project-img {
-          width: 120px;
-          height: 120px;
+          width: 80px;
+          height: 80px;
           object-fit: contain;
-          border-radius: 16px;
+          border-radius: 12px;
           background: rgba(255, 255, 255, 0.8);
-          padding: 1rem;
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+          padding: 0.75rem;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
           border: 2px solid rgba(37, 99, 235, 0.1);
         }
         
-        .project-content {
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-          text-align: center;
+        .project-title-section {
           flex-grow: 1;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
         }
         
         .project-title {
@@ -527,13 +530,49 @@ const App = () => {
           color: #1e3a8a;
           margin: 0;
           line-height: 1.3;
+          flex-grow: 1;
+          text-align: left;
+        }
+        
+        .project-links {
+          display: flex;
+          gap: 0.5rem;
+          flex-shrink: 0;
+          margin-left: 1rem;
+        }
+        
+        .project-link-btn {
+          width: 36px;
+          height: 36px;
+          background: rgba(37, 99, 235, 0.1);
+          border: 1px solid rgba(37, 99, 235, 0.2);
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          color: #2563eb;
+        }
+        
+        .project-link-btn:hover:not(:disabled) {
+          background: #2563eb;
+          color: white;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+        
+        .project-link-btn:disabled {
+          opacity: 0.4;
+          cursor: not-allowed;
         }
         
         .project-technologies {
           display: flex;
           flex-wrap: wrap;
           gap: 0.5rem;
-          justify-content: center;
+          justify-content: flex-start;
+          margin-bottom: 1rem;
         }
         
         .tech-tag {
@@ -564,24 +603,34 @@ const App = () => {
         /* Responsive adjustments */
         @media (max-width: 1024px) {
           .projects-container {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-          }
-        }
-        
-        @media (max-width: 768px) {
-          .projects-container {
             grid-template-columns: 1fr;
             gap: 1.5rem;
           }
           
+          .project-header {
+            flex-direction: column;
+            gap: 1rem;
+          }
+          
+          .project-title-section {
+            flex-direction: column;
+            gap: 0.5rem;
+          }
+          
+          .project-links {
+            margin-left: 0;
+            justify-content: flex-start;
+          }
+        }
+        
+        @media (max-width: 768px) {
           .project-card {
             padding: 1.5rem;
           }
           
           .project-img {
-            width: 100px;
-            height: 100px;
+            width: 60px;
+            height: 60px;
           }
           
           .project-title {
