@@ -106,18 +106,10 @@ const Hero = () => {
 const Projects = () => {
   const projects = [
     {
-      title: "AI-Powered Fashion Trend Prediction System",
-      technologies: ["React", "Python", "Machine Learning", "OpenAI GPT API"],
-      description: "Developed predictive analytics platform using ML algorithms for fashion forecasting, enabling designers to identify emerging trends",
-      image: "/ai-fashion.png",
-      github: "",
-      demo: ""
-    },
-    {
-      title: "Smart Outfit Planner Bot",
-      technologies: ["React", "Node.js", "OpenAI GPT API", "Canvas"],
-      description: "Created AI-enhanced styling assistant with Chrome Extension integration, using LLM-powered recommendations and Canvas visualization to accelerate outfit creation workflows by 80%",
-      image: "/smart.jpeg",
+      title: "ML Pipeline for Instagram Analytics",
+      technologies: ["Apache Airflow", "Spark", "TensorFlow", "Kubernetes"],
+      description: "Built fault-tolerant ML pipeline processing Instagram data for sentiment analysis and trend detection. Implemented feature engineering workflows and model versioning system. Designed auto-scaling infrastructure handling variable traffic loads with cost optimization",
+      image: "/instagram.jpeg",
       github: "",
       demo: ""
     },
@@ -138,10 +130,10 @@ const Projects = () => {
       demo: ""
     },
     {
-      title: "ML Pipeline for Social Media Analytics",
-      technologies: ["Apache Airflow", "Spark", "TensorFlow", "Kubernetes"],
-      description: "Built fault-tolerant ML pipeline processing social media data for sentiment analysis and trend detection. Implemented feature engineering workflows and model versioning system. Designed auto-scaling infrastructure handling variable traffic loads with cost optimization",
-      image: "/instagram.jpeg",
+      title: "LLM-Powered Financial Insights Bot",
+      technologies: ["Python", "OpenAI GPT API", "FastAPI", "PostgreSQL", "Redis", "React"],
+      description: "Built AI-powered financial analysis assistant integrating GPT-4 with market data APIs and financial databases. Implemented context-aware insights and automated report generation, reducing analyst research time by 50% and improving decision-making accuracy for portfolio managers",
+      image: "/financial-insights-bot.png",
       github: "",
       demo: ""
     },
@@ -154,10 +146,18 @@ const Projects = () => {
       demo: ""
     },
     {
-      title: "LLM-Powered Financial Insights Bot",
-      technologies: ["Python", "OpenAI GPT API", "FastAPI", "PostgreSQL", "Redis", "React"],
-      description: "Built AI-powered financial analysis assistant integrating GPT-4 with market data APIs and financial databases. Implemented context-aware insights and automated report generation, reducing analyst research time by 50% and improving decision-making accuracy for portfolio managers",
-      image: "/financial-insights-bot.png",
+      title: "AI-Powered Fashion Trend Prediction System",
+      technologies: ["React", "Python", "Machine Learning", "OpenAI GPT API"],
+      description: "Developed predictive analytics platform using ML algorithms for fashion forecasting, enabling designers to identify emerging trends",
+      image: "/ai-fashion.png",
+      github: "",
+      demo: ""
+    },
+    {
+      title: "Smart Outfit Planner Bot",
+      technologies: ["React", "Node.js", "OpenAI GPT API", "Canvas"],
+      description: "Created AI-enhanced styling assistant with Chrome Extension integration, using LLM-powered recommendations and Canvas visualization to accelerate outfit creation workflows by 80%",
+      image: "/smart.jpeg",
       github: "",
       demo: ""
     }
