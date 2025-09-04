@@ -490,7 +490,7 @@ const App = () => {
           text-align: left;
         }
         
-        /* Updated layout to match sketch */
+        /* Updated layout with bigger image and full-width description */
         .projects-container {
           max-width: 1400px;
           margin: 0 auto;
@@ -508,6 +508,9 @@ const App = () => {
           border: 1px solid rgba(255, 255, 255, 0.8);
           transition: all 0.3s ease;
           height: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
         }
         
         .project-card:hover {
@@ -515,25 +518,26 @@ const App = () => {
           box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
         }
         
-        .project-layout {
+        .project-top-section {
           display: flex;
           gap: 1.5rem;
-          height: 100%;
+          align-items: stretch;
         }
         
         .project-image {
           flex-shrink: 0;
-          align-self: flex-start;
+          display: flex;
+          align-items: center;
         }
         
         .project-img {
-          width: 80px;
-          height: 80px;
+          width: 120px;
+          height: 120px;
           object-fit: contain;
-          border-radius: 12px;
+          border-radius: 16px;
           background: rgba(255, 255, 255, 0.8);
-          padding: 0.75rem;
-          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+          padding: 1rem;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
           border: 2px solid rgba(37, 99, 235, 0.1);
         }
         
@@ -542,6 +546,7 @@ const App = () => {
           display: flex;
           flex-direction: column;
           gap: 1rem;
+          justify-content: center;
         }
         
         .project-header {
@@ -552,7 +557,7 @@ const App = () => {
         }
         
         .project-title {
-          font-size: 1.1rem;
+          font-size: 1.2rem;
           font-weight: bold;
           color: #1e3a8a;
           margin: 0;
@@ -617,12 +622,12 @@ const App = () => {
         }
         
         .project-description {
-          font-size: 0.9rem;
+          font-size: 0.95rem;
           color: #374151;
           line-height: 1.6;
           margin: 0;
           text-align: left;
-          flex-grow: 1;
+          width: 100%;
         }
         
         /* Responsive adjustments */
@@ -636,34 +641,41 @@ const App = () => {
         @media (max-width: 768px) {
           .project-card {
             padding: 1.5rem;
+            gap: 1rem;
           }
           
-          .project-layout {
+          .project-top-section {
             flex-direction: column;
             gap: 1rem;
+            text-align: center;
           }
           
           .project-image {
             align-self: center;
           }
           
+          .project-img {
+            width: 100px;
+            height: 100px;
+          }
+          
           .project-header {
             flex-direction: column;
             gap: 0.5rem;
-            align-items: flex-start;
+            align-items: center;
           }
           
           .project-links {
-            align-self: flex-start;
-          }
-          
-          .project-img {
-            width: 60px;
-            height: 60px;
+            align-self: center;
           }
           
           .project-title {
-            font-size: 1rem;
+            font-size: 1.1rem;
+            text-align: center;
+          }
+          
+          .project-technologies {
+            justify-content: center;
           }
           
           .tech-tag {
@@ -673,6 +685,7 @@ const App = () => {
           
           .project-description {
             font-size: 0.85rem;
+            text-align: center;
           }
         }
         
