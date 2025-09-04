@@ -106,28 +106,60 @@ const Hero = () => {
 const Projects = () => {
   const projects = [
     {
-      title: "AI-Powered Fashion Trend Prediction System",
-      technologies: ["React", "Python", "Machine Learning", "OpenAI GPT API"],
-      description: "Developed predictive analytics platform using ML algorithms for fashion forecasting, enabling designers to identify emerging trends",
-      image: "/ai-fashion.png"
-    },
-    {
-      title: "Smart Outfit Planner Bot",
-      technologies: ["React", "Node.js", "OpenAI GPT API", "Canvas"],
-      description: "Created AI-enhanced styling assistant with Chrome Extension integration, using LLM-powered recommendations and Canvas visualization to accelerate outfit creation workflows by 80%",
-      image: "/smart.jpeg"
+      title: "ML Pipeline for Instagram Analytics",
+      technologies: ["Apache Airflow", "Spark", "TensorFlow", "Kubernetes"],
+      description: "Built fault-tolerant ML pipeline processing Instagram data for sentiment analysis and trend detection. Implemented feature engineering workflows and model versioning system. Designed auto-scaling infrastructure handling variable traffic loads with cost optimization",
+      image: "/instagram.jpeg",
+      github: "https://github.com/shreyaw333/ml-pipeline-for-sma/",
+      demo: ""
     },
     {
       title: "Pinterest Trend Analysis Platform",
       technologies: ["Angular", "Python (FastAPI)", "GraphQL", "Canvas"],
       description: "Built full-stack trend analysis platform extracting Pinterest data, implementing Canvas-based visualization dashboards that compress trend identification from weeks to hours",
-      image: "/pinterest-logo.png"
+      image: "/pinterest-logo.png",
+      github: "https://github.com/shreyaw333/pinterest-analytics/",
+      demo: ""
     },
     {
       title: "Reddit Analytics Dashboard Pipeline",
       technologies: ["Apache Airflow", "AWS", "QuickSight", "Python"],
       description: "Built production-grade data pipeline using Apache Airflow, AWS, and QuickSight to automate Reddit data extraction, enabling real-time trend detection and sentiment analysis through interactive dashboards",
-      image: "/reddit.png"
+      image: "/reddit.png",
+      github: "https://github.com/shreyaw333/Reddit_Data_Analysis/",
+      demo: ""
+    },
+    {
+      title: "LLM-Powered Financial Insights Bot",
+      technologies: ["Python", "OpenAI GPT API", "FastAPI", "PostgreSQL", "Redis", "React"],
+      description: "Built AI-powered financial analysis assistant integrating GPT-4 with market data APIs and financial databases. Implemented context-aware insights and automated report generation, reducing analyst research time by 50% and improving decision-making accuracy for portfolio managers",
+      image: "/financial-insights-bot.png",
+      github: "https://github.com/shreyaw333/llm-financial-insights-bot/",
+      demo: ""
+    },
+    {
+      title: "ML-Powered Ad Targeting & Revenue Optimization Engine",
+      technologies: ["Python", "TensorFlow", "PyTorch", "LangChain", "Apache Kafka", "A/B Testing"],
+      description: "Architected an ML system combining user behavior analysis and predictive modeling to optimize ad relevancy and revenue. Implemented real-time feature engineering with collaborative filtering, improving CTR by 35% and revenue per user by 28%",
+      image: "/targeting.png",
+      github: "https://github.com/shreyaw333/ad-targeting-revenue-optimization/",
+      demo: ""
+    },
+    {
+      title: "Smart Outfit Planner Bot",
+      technologies: ["React", "Node.js", "OpenAI GPT API", "Canvas"],
+      description: "Created AI-enhanced styling assistant with Chrome Extension integration, using LLM-powered recommendations and Canvas visualization to accelerate outfit creation workflows by 80%",
+      image: "/smart.jpeg",
+      github: "https://github.com/shreyaw333/smart-outfit-planner/",
+      demo: ""
+    },
+    {
+      title: "AI-Powered Fashion Trend Prediction System",
+      technologies: ["React", "Python", "Machine Learning", "OpenAI GPT API"],
+      description: "Developed predictive analytics platform using ML algorithms for fashion forecasting, enabling designers to identify emerging trends",
+      image: "/ai-fashion.png",
+      github: "https://github.com/shreyaw333/ai-fashion-trends-prediction/",
+      demo: ""
     }
   ];
 
@@ -141,7 +173,7 @@ const Projects = () => {
         <div className="projects-container">
           {projects.map((project, index) => (
             <div key={index} className="project-card">
-              <div className="project-layout">
+              <div className="project-top-section">
                 <div className="project-image">
                   <img src={project.image} alt={project.title} className="project-img" />
                 </div>
@@ -178,10 +210,10 @@ const Projects = () => {
                       </span>
                     ))}
                   </div>
-                  
-                  <p className="project-description">{project.description}</p>
                 </div>
               </div>
+              
+              <p className="project-description">{project.description}</p>
             </div>
           ))}
         </div>
@@ -189,20 +221,6 @@ const Projects = () => {
     </section>
   );
 };
-
-// Section Component Template
-const Section = ({ id, title, children, bgClass = "bg-white-light" }) => (
-  <section id={id} className={`section ${bgClass}`}>
-    <div className="section-content">
-      <h2 className="section-title left-aligned">
-        {title}
-      </h2>
-      <div className="section-text">
-        {children}
-      </div>
-    </div>
-  </section>
-);
 
 // Tech Stack Component
 const TechStack = () => {
@@ -222,9 +240,9 @@ const TechStack = () => {
       category: "Frontend Development",
       technologies: [
         { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+        { name: "Angular", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg" },
         { name: "HTML5", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
         { name: "CSS3", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
-        { name: "Angular", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg" },
         { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
         { name: "Redux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" }
       ]
@@ -490,7 +508,7 @@ const App = () => {
           text-align: left;
         }
         
-        /* Updated layout with bigger image and full-width description */
+        /* Updated layout with better grid handling */
         .projects-container {
           max-width: 1400px;
           margin: 0 auto;
@@ -707,7 +725,7 @@ const App = () => {
       <Hero />
       
       <AboutMe />
-      
+
       <Experience />
       
       <TechStack />
