@@ -106,60 +106,28 @@ const Hero = () => {
 const Projects = () => {
   const projects = [
     {
-      title: "ML Pipeline for Instagram Analytics",
-      technologies: ["Apache Airflow", "Spark", "TensorFlow", "Kubernetes"],
-      description: "Built fault-tolerant ML pipeline processing Instagram data for sentiment analysis and trend detection. Implemented feature engineering workflows and model versioning system. Designed auto-scaling infrastructure handling variable traffic loads with cost optimization",
-      image: "/instagram.jpeg",
-      github: "https://github.com/shreyaw333/ml-pipeline-for-sma/",
-      demo: ""
-    },
-    {
-      title: "Pinterest Trend Analysis Platform",
-      technologies: ["Angular", "Python (FastAPI)", "GraphQL", "Canvas"],
-      description: "Built full-stack trend analysis platform extracting Pinterest data, implementing Canvas-based visualization dashboards that compress trend identification from weeks to hours",
-      image: "/pinterest-logo.png",
-      github: "https://github.com/shreyaw333/pinterest-analytics/",
-      demo: ""
-    },
-    {
-      title: "Reddit Analytics Dashboard Pipeline",
-      technologies: ["Apache Airflow", "AWS", "QuickSight", "Python"],
-      description: "Built production-grade data pipeline using Apache Airflow, AWS, and QuickSight to automate Reddit data extraction, enabling real-time trend detection and sentiment analysis through interactive dashboards",
-      image: "/reddit.png",
-      github: "https://github.com/shreyaw333/Reddit_Data_Analysis/",
-      demo: ""
-    },
-    {
-      title: "LLM-Powered Financial Insights Bot",
-      technologies: ["Python", "OpenAI GPT API", "FastAPI", "PostgreSQL", "Redis", "React"],
-      description: "Built AI-powered financial analysis assistant integrating GPT-4 with market data APIs and financial databases. Implemented context-aware insights and automated report generation, reducing analyst research time by 50% and improving decision-making accuracy for portfolio managers",
-      image: "/financial-insights-bot.png",
-      github: "https://github.com/shreyaw333/llm-financial-insights-bot/",
-      demo: ""
-    },
-    {
-      title: "ML-Powered Ad Targeting & Revenue Optimization Engine",
-      technologies: ["Python", "TensorFlow", "PyTorch", "LangChain", "Apache Kafka", "A/B Testing"],
-      description: "Architected an ML system combining user behavior analysis and predictive modeling to optimize ad relevancy and revenue. Implemented real-time feature engineering with collaborative filtering, improving CTR by 35% and revenue per user by 28%",
-      image: "/targeting.png",
-      github: "https://github.com/shreyaw333/ad-targeting-revenue-optimization/",
-      demo: ""
+      title: "AI-Powered Fashion Trend Prediction System",
+      technologies: ["React", "Python", "Machine Learning", "OpenAI GPT API"],
+      description: "Developed predictive analytics platform using ML algorithms for fashion forecasting, enabling designers to identify emerging trends",
+      image: "/ai-fashion.png"
     },
     {
       title: "Smart Outfit Planner Bot",
       technologies: ["React", "Node.js", "OpenAI GPT API", "Canvas"],
       description: "Created AI-enhanced styling assistant with Chrome Extension integration, using LLM-powered recommendations and Canvas visualization to accelerate outfit creation workflows by 80%",
-      image: "/smart.jpeg",
-      github: "https://github.com/shreyaw333/smart-outfit-planner/",
-      demo: ""
+      image: "/smart.jpeg"
     },
     {
-      title: "AI-Powered Fashion Trend Prediction System",
-      technologies: ["React", "Python", "Machine Learning", "OpenAI GPT API"],
-      description: "Developed predictive analytics platform using ML algorithms for fashion forecasting, enabling designers to identify emerging trends",
-      image: "/ai-fashion.png",
-      github: "https://github.com/shreyaw333/ai-fashion-trends-prediction/",
-      demo: ""
+      title: "Pinterest Trend Analysis Platform",
+      technologies: ["Angular", "Python (FastAPI)", "GraphQL", "Canvas"],
+      description: "Built full-stack trend analysis platform extracting Pinterest data, implementing Canvas-based visualization dashboards that compress trend identification from weeks to hours",
+      image: "/pinterest-logo.png"
+    },
+    {
+      title: "Reddit Analytics Dashboard Pipeline",
+      technologies: ["Apache Airflow", "AWS", "QuickSight", "Python"],
+      description: "Built production-grade data pipeline using Apache Airflow, AWS, and QuickSight to automate Reddit data extraction, enabling real-time trend detection and sentiment analysis through interactive dashboards",
+      image: "/reddit.png"
     }
   ];
 
@@ -173,46 +141,22 @@ const Projects = () => {
         <div className="projects-container">
           {projects.map((project, index) => (
             <div key={index} className="project-card">
-              <div className="project-layout">
-                <div className="project-image">
-                  <img src={project.image} alt={project.title} className="project-img" />
+              <div className="project-image">
+                <img src={project.image} alt={project.title} className="project-img" />
+              </div>
+              
+              <div className="project-content">
+                <h3 className="project-title">{project.title}</h3>
+                
+                <div className="project-technologies">
+                  {project.technologies.map((tech, techIndex) => (
+                    <span key={techIndex} className="tech-tag">
+                      {tech}
+                    </span>
+                  ))}
                 </div>
                 
-                <div className="project-right-content">
-                  <div className="project-header">
-                    <h3 className="project-title">{project.title}</h3>
-                    <div className="project-links">
-                      <button 
-                        className="project-link-btn"
-                        onClick={() => project.github && window.open(project.github, '_blank')}
-                        title="View on GitHub"
-                        disabled={!project.github}
-                      >
-                        <Github size={18} />
-                      </button>
-                      <button 
-                        className="project-link-btn"
-                        onClick={() => project.demo && window.open(project.demo, '_blank')}
-                        title="View Live Demo"
-                        disabled={!project.demo}
-                      >
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="m9 18 6-6-6-6"/>
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
-                  
-                  <div className="project-technologies">
-                    {project.technologies.map((tech, techIndex) => (
-                      <span key={techIndex} className="tech-tag">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  <p className="project-description">{project.description}</p>
-                </div>
+                <p className="project-description">{project.description}</p>
               </div>
             </div>
           ))}
@@ -240,40 +184,91 @@ const Section = ({ id, title, children, bgClass = "bg-white-light" }) => (
 const TechStack = () => {
   const techCategories = [
     {
-      category: "Frontend",
+      category: "Programming Languages",
       technologies: [
+        { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
         { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
         { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+        { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+        { name: "C++", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" },
+        { name: "Go", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" }
+      ]
+    },
+    {
+      category: "Frontend Development",
+      technologies: [
         { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+        { name: "HTML5", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+        { name: "CSS3", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
         { name: "Angular", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg" },
         { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
-        { name: "Redux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" },
-        { name: "Tailwind CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" },
-        { name: "HTML5", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" }
+        { name: "Redux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" }
       ]
     },
     {
-      category: "Backend",
+      category: "Backend Development",
       technologies: [
-        { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
-        { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
-        { name: "FastAPI", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" },
-        { name: "Flask", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" },
         { name: "Django", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" },
+        { name: "Flask", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" },
+        { name: "FastAPI", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" },
+        { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
         { name: "Express", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
-        { name: "GraphQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg" },
-        { name: "Prisma", icon: "https://www.vectorlogo.zone/logos/prismaio/prismaio-icon.svg" }
+        { name: "GraphQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg" }
       ]
     },
     {
-      category: "Canvas & Visualization",
+      category: "AI & Machine Learning",
       technologies: [
-        { name: "HTML5 Canvas", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
-        { name: "WebGL", icon: "https://www.vectorlogo.zone/logos/webgl/webgl-icon.svg" },
-        { name: "Three.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/threejs/threejs-original.svg" },
-        { name: "D3.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/d3js/d3js-original.svg" },
-        { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
-        { name: "Chrome Extension", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg" }
+        { name: "TensorFlow", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" },
+        { name: "OpenAI GPT", icon: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" },
+        { name: "scikit-learn", icon: "https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" },
+        { name: "PyTorch", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" },
+        { name: "LangChain", icon: "https://python.langchain.com/img/brand/wordmark.png" },
+        { name: "Hugging Face", icon: "https://huggingface.co/front/assets/huggingface_logo-noborder.svg" }
+      ]
+    },
+    {
+      category: "Data Engineering",
+      technologies: [
+        { name: "Apache Airflow", icon: "https://airflow.apache.org/docs/apache-airflow/stable/_images/pin_large.png" },
+        { name: "Apache Kafka", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg" },
+        { name: "Snowflake", icon: "https://logos-world.net/wp-content/uploads/2022/11/Snowflake-Symbol.png" },
+        { name: "BigQuery", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" },
+        { name: "Apache Spark", icon: "https://spark.apache.org/images/spark-logo-trademark.png" },
+        { name: "Elasticsearch", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elasticsearch/elasticsearch-original.svg" }
+      ]
+    },
+    {
+      category: "Cloud & Infrastructure",
+      technologies: [
+        { name: "AWS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" },
+        { name: "Google Cloud", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" },
+        { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+        { name: "Kubernetes", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" },
+        { name: "Jenkins", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" },
+        { name: "GitHub Actions", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" }
+      ]
+    },
+    {
+      category: "Databases",
+      technologies: [
+        { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+        { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+        { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+        { name: "Redis", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" },
+        { name: "SQLite", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" },
+        { name: "Elasticsearch", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elasticsearch/elasticsearch-original.svg" }
+      ]
+    },
+    {
+      category: "Analytics & BI Tools",
+      technologies: [
+        { name: "Tableau", icon: "https://logos-world.net/wp-content/uploads/2021/10/Tableau-Symbol.png" },
+        { name: "Power BI", icon: "https://logos-world.net/wp-content/uploads/2022/02/Microsoft-Power-BI-Symbol.png" },
+        { name: "AWS QuickSight", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" },
+        { name: "Looker", icon: "https://seeklogo.com/images/L/looker-logo-B8A6B93D71-seeklogo.com.png" },
+        { name: "Google Data Studio", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" },
+        { name: "Grafana", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg" }
       ]
     }
   ];
@@ -471,7 +466,7 @@ const App = () => {
           text-align: left;
         }
         
-        /* New horizontal layout for projects */
+        /* Updated layout to match sketch */
         .projects-container {
           max-width: 1400px;
           margin: 0 auto;
@@ -482,8 +477,6 @@ const App = () => {
         }
         
         .project-card {
-          display: flex;
-          flex-direction: column;
           background: rgba(255, 255, 255, 0.9);
           border-radius: 20px;
           padding: 2rem;
@@ -498,15 +491,15 @@ const App = () => {
           box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
         }
         
-        .project-header {
+        .project-layout {
           display: flex;
-          align-items: flex-start;
           gap: 1.5rem;
-          margin-bottom: 1.5rem;
+          height: 100%;
         }
         
         .project-image {
           flex-shrink: 0;
+          align-self: flex-start;
         }
         
         .project-img {
@@ -520,11 +513,18 @@ const App = () => {
           border: 2px solid rgba(37, 99, 235, 0.1);
         }
         
-        .project-title-section {
+        .project-right-content {
           flex-grow: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+        
+        .project-header {
           display: flex;
           justify-content: space-between;
           align-items: flex-start;
+          gap: 1rem;
         }
         
         .project-title {
@@ -541,7 +541,6 @@ const App = () => {
           display: flex;
           gap: 0.5rem;
           flex-shrink: 0;
-          margin-left: 1rem;
         }
         
         .project-link-btn {
@@ -575,7 +574,6 @@ const App = () => {
           flex-wrap: wrap;
           gap: 0.5rem;
           justify-content: flex-start;
-          margin-bottom: 1rem;
         }
         
         .tech-tag {
@@ -609,26 +607,30 @@ const App = () => {
             grid-template-columns: 1fr;
             gap: 1.5rem;
           }
-          
-          .project-header {
-            flex-direction: column;
-            gap: 1rem;
-          }
-          
-          .project-title-section {
-            flex-direction: column;
-            gap: 0.5rem;
-          }
-          
-          .project-links {
-            margin-left: 0;
-            justify-content: flex-start;
-          }
         }
         
         @media (max-width: 768px) {
           .project-card {
             padding: 1.5rem;
+          }
+          
+          .project-layout {
+            flex-direction: column;
+            gap: 1rem;
+          }
+          
+          .project-image {
+            align-self: center;
+          }
+          
+          .project-header {
+            flex-direction: column;
+            gap: 0.5rem;
+            align-items: flex-start;
+          }
+          
+          .project-links {
+            align-self: flex-start;
           }
           
           .project-img {
