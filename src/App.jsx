@@ -106,60 +106,28 @@ const Hero = () => {
 const Projects = () => {
   const projects = [
     {
-      title: "ML Pipeline for Instagram Analytics",
-      technologies: ["Apache Airflow", "Spark", "TensorFlow", "Kubernetes"],
-      description: "Built fault-tolerant ML pipeline processing Instagram data for sentiment analysis and trend detection. Implemented feature engineering workflows and model versioning system. Designed auto-scaling infrastructure handling variable traffic loads with cost optimization",
-      image: "/instagram.jpeg",
-      github: "https://github.com/shreyaw333/ml-pipeline-for-sma/",
-      demo: ""
-    },
-    {
-      title: "Pinterest Trend Analysis Platform",
-      technologies: ["Angular", "Python (FastAPI)", "GraphQL", "Canvas"],
-      description: "Built full-stack trend analysis platform extracting Pinterest data, implementing Canvas-based visualization dashboards that compress trend identification from weeks to hours",
-      image: "/pinterest-logo.png",
-      github: "https://github.com/shreyaw333/pinterest-analytics/",
-      demo: ""
-    },
-    {
-      title: "Reddit Analytics Dashboard Pipeline",
-      technologies: ["Apache Airflow", "AWS", "QuickSight", "Python"],
-      description: "Built production-grade data pipeline using Apache Airflow, AWS, and QuickSight to automate Reddit data extraction, enabling real-time trend detection and sentiment analysis through interactive dashboards",
-      image: "/reddit.png",
-      github: "https://github.com/shreyaw333/Reddit_Data_Analysis/",
-      demo: ""
-    },
-    {
-      title: "LLM-Powered Financial Insights Bot",
-      technologies: ["Python", "OpenAI GPT API", "FastAPI", "PostgreSQL", "Redis", "React"],
-      description: "Built AI-powered financial analysis assistant integrating GPT-4 with market data APIs and financial databases. Implemented context-aware insights and automated report generation, reducing analyst research time by 50% and improving decision-making accuracy for portfolio managers",
-      image: "/financial-insights-bot.png",
-      github: "https://github.com/shreyaw333/llm-financial-insights-bot/",
-      demo: ""
-    },
-    {
-      title: "ML-Powered Ad Targeting & Revenue Optimization Engine",
-      technologies: ["Python", "TensorFlow", "PyTorch", "LangChain", "Apache Kafka", "A/B Testing"],
-      description: "Architected an ML system combining user behavior analysis and predictive modeling to optimize ad relevancy and revenue. Implemented real-time feature engineering with collaborative filtering, improving CTR by 35% and revenue per user by 28%",
-      image: "/targeting.png",
-      github: "https://github.com/shreyaw333/ad-targeting-revenue-optimization/",
-      demo: ""
+      title: "AI-Powered Fashion Trend Prediction System",
+      technologies: ["React", "Python", "Machine Learning", "OpenAI GPT API"],
+      description: "Developed predictive analytics platform using ML algorithms for fashion forecasting, enabling designers to identify emerging trends",
+      image: "/ai-fashion.png"
     },
     {
       title: "Smart Outfit Planner Bot",
       technologies: ["React", "Node.js", "OpenAI GPT API", "Canvas"],
       description: "Created AI-enhanced styling assistant with Chrome Extension integration, using LLM-powered recommendations and Canvas visualization to accelerate outfit creation workflows by 80%",
-      image: "/smart.jpeg",
-      github: "https://github.com/shreyaw333/smart-outfit-planner/",
-      demo: ""
+      image: "/smart.jpeg"
     },
     {
-      title: "AI-Powered Fashion Trend Prediction System",
-      technologies: ["React", "Python", "Machine Learning", "OpenAI GPT API"],
-      description: "Developed predictive analytics platform using ML algorithms for fashion forecasting, enabling designers to identify emerging trends",
-      image: "/ai-fashion.png",
-      github: "https://github.com/shreyaw333/ai-fashion-trends-prediction/",
-      demo: ""
+      title: "Pinterest Trend Analysis Platform",
+      technologies: ["Angular", "Python (FastAPI)", "GraphQL", "Canvas"],
+      description: "Built full-stack trend analysis platform extracting Pinterest data, implementing Canvas-based visualization dashboards that compress trend identification from weeks to hours",
+      image: "/pinterest-logo.png"
+    },
+    {
+      title: "Reddit Analytics Dashboard Pipeline",
+      technologies: ["Apache Airflow", "AWS", "QuickSight", "Python"],
+      description: "Built production-grade data pipeline using Apache Airflow, AWS, and QuickSight to automate Reddit data extraction, enabling real-time trend detection and sentiment analysis through interactive dashboards",
+      image: "/reddit.png"
     }
   ];
 
@@ -173,22 +141,46 @@ const Projects = () => {
         <div className="projects-container">
           {projects.map((project, index) => (
             <div key={index} className="project-card">
-              <div className="project-image">
-                <img src={project.image} alt={project.title} className="project-img" />
-              </div>
-              
-              <div className="project-content">
-                <h3 className="project-title">{project.title}</h3>
-                
-                <div className="project-technologies">
-                  {project.technologies.map((tech, techIndex) => (
-                    <span key={techIndex} className="tech-tag">
-                      {tech}
-                    </span>
-                  ))}
+              <div className="project-layout">
+                <div className="project-image">
+                  <img src={project.image} alt={project.title} className="project-img" />
                 </div>
                 
-                <p className="project-description">{project.description}</p>
+                <div className="project-right-content">
+                  <div className="project-header">
+                    <h3 className="project-title">{project.title}</h3>
+                    <div className="project-links">
+                      <button 
+                        className="project-link-btn"
+                        onClick={() => project.github && window.open(project.github, '_blank')}
+                        title="View on GitHub"
+                        disabled={!project.github}
+                      >
+                        <Github size={18} />
+                      </button>
+                      <button 
+                        className="project-link-btn"
+                        onClick={() => project.demo && window.open(project.demo, '_blank')}
+                        title="View Live Demo"
+                        disabled={!project.demo}
+                      >
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="m9 18 6-6-6-6"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  
+                  <div className="project-technologies">
+                    {project.technologies.map((tech, techIndex) => (
+                      <span key={techIndex} className="tech-tag">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  <p className="project-description">{project.description}</p>
+                </div>
               </div>
             </div>
           ))}
