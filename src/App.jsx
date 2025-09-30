@@ -111,7 +111,7 @@ const Projects = () => {
       description: "Built fault-tolerant ML pipeline processing Instagram data for sentiment analysis and trend detection. Implemented feature engineering workflows and model versioning system. Designed auto-scaling infrastructure handling variable traffic loads with cost optimization",
       image: "/instagram.jpeg",
       github: "https://github.com/shreyaw333/ml-pipeline-for-sma/",
-      demo: ""
+      demo: "https://ml-pipeline-for-sma.vercel.app/"
     },
     {
       title: "Pinterest Trend Analysis Platform",
@@ -119,7 +119,7 @@ const Projects = () => {
       description: "Built full-stack trend analysis platform extracting Pinterest data, implementing Canvas-based visualization dashboards that compress trend identification from weeks to hours",
       image: "/pinterest-logo.png",
       github: "https://github.com/shreyaw333/pinterest-analytics/",
-      demo: ""
+      demo: "https://pinterest-analytics.vercel.app/"
     },
     {
       title: "Reddit Analytics Dashboard Pipeline",
@@ -127,7 +127,15 @@ const Projects = () => {
       description: "Built production-grade data pipeline using Apache Airflow, AWS, and QuickSight to automate Reddit data extraction, enabling real-time trend detection and sentiment analysis through interactive dashboards",
       image: "/reddit.png",
       github: "https://github.com/shreyaw333/Reddit_Data_Analysis/",
-      demo: ""
+      demo: "https://reddit-data-analysis.vercel.app/"
+    },
+    {
+      title: "TuneVault",
+      technologies: ["Python", "FastAPI", "PostgreSQL", "Redis", "React", "Docker", "AWS", "Stripe APIs", "Apache Kafka"],
+      description: "Built multi-platform subscription revenue management system for music streaming with automated revenue recognition, artist royalty calculations, and real-time analytics, reducing manual accounting processes by 75%",
+      image: "/tunevault.png",
+      github: "https://github.com/shreyaw333/tune-vault",
+      demo: "https://tune-vault-tau.vercel.app/"
     },
     {
       title: "LLM-Powered Financial Insights Bot",
@@ -143,23 +151,15 @@ const Projects = () => {
       description: "Architected an ML system combining user behavior analysis and predictive modeling to optimize ad relevancy and revenue. Implemented real-time feature engineering with collaborative filtering, improving CTR by 35% and revenue per user by 28%",
       image: "/targeting.png",
       github: "https://github.com/shreyaw333/ad-targeting-revenue-optimization/",
-      demo: ""
+      demo: "https://ad-targeting-revenue-optimization.vercel.app/"
     },
     {
-      title: "Smart Outfit Planner Bot",
-      technologies: ["React", "Node.js", "OpenAI GPT API", "Canvas"],
-      description: "Created AI-enhanced styling assistant with Chrome Extension integration, using LLM-powered recommendations and Canvas visualization to accelerate outfit creation workflows by 80%",
-      image: "/smart.jpeg",
-      github: "https://github.com/shreyaw333/smart-outfit-planner/",
-      demo: ""
-    },
-    {
-      title: "AI-Powered Fashion Trend Prediction System",
-      technologies: ["React", "Python", "Machine Learning", "OpenAI GPT API"],
-      description: "Developed predictive analytics platform using ML algorithms for fashion forecasting, enabling designers to identify emerging trends",
-      image: "/ai-fashion.png",
-      github: "https://github.com/shreyaw333/ai-fashion-trends-prediction/",
-      demo: ""
+      title: "Real-Time Payment Processing Engine",
+      technologies: ["Python", "FastAPI", "PostgreSQL", "REST APIs", "Docker", "AWS"],
+      description: "Built end-to-end payment processing system supporting multiple payment methods including credit cards and digital wallets. Implemented transaction validation, real-time status updates, and secure authentication with comprehensive error handling and monitoring systems",
+      image: "/payment-engine.png",
+      github: "https://github.com/shreyaw333/realtime-payment-engine",
+      demo: "https://68b78c56708f0800073b31df--teal-starlight-c96e0b.netlify.app/"
     }
   ];
 
@@ -353,6 +353,7 @@ const Experience = () => {
       tag: "(Startup)",
       role: "Lead Backend Engineer",
       duration: "May 2025 - Present",
+      link: "",
       points: [
         "Led full-stack development for B2B platform serving 10,000+ users achieving 99.9% uptime",
         "Built high-performing interfaces with Canvas technologies that compressed user workflows by 60%",
@@ -365,6 +366,7 @@ const Experience = () => {
       tag: "",
       role: "Senior Software & Data Engineer",
       duration: "August 2021 – April 2023",
+      link: "https://www.youtube.com/watch?v=FbZRROb-e4w",
       points: [
         "Architected enterprise B2B SaaS platforms for ServiceNow clients processing millions of records daily",
         "Led product architecture implementing GraphQL APIs that reduced manual processing effort by 40%",
@@ -377,6 +379,7 @@ const Experience = () => {
       tag: "(Startup)",
       role: "Software Developer Intern",
       duration: "March 2021 - April 2021",
+      link: "",
       points: [
         "Built real-time analytics interfaces using React and Canvas technologies for financial data visualization",
         "Developed Python backend systems with GraphQL APIs for scalable client applications"
@@ -399,9 +402,22 @@ const Experience = () => {
               </div>
               
               <div className="company-info">
-                <h3 className="company-name">
-                  {exp.company} <span className="company-tag">{exp.tag}</span>
-                </h3>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <h3 className="company-name">
+                    {exp.company} <span className="company-tag">{exp.tag}</span>
+                  </h3>
+                  {exp.link && (
+                    <button 
+                      className="company-link-btn"
+                      onClick={() => window.open(exp.link, '_blank')}
+                      title="View More"
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="m9 18 6-6-6-6"/>
+                      </svg>
+                    </button>
+                  )}
+                </div>
                 <h4 className="role-title">{exp.role}</h4>
                 <p className="duration">{exp.duration}</p>
               </div>
@@ -717,6 +733,28 @@ const App = () => {
           .hero-name {
             font-size: 6.5rem;
           }
+        }
+        
+        .company-link-btn {
+          width: 28px;
+          height: 28px;
+          background: rgba(37, 99, 235, 0.1);
+          border: 1px solid rgba(37, 99, 235, 0.2);
+          border-radius: 6px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          color: #2563eb;
+          flex-shrink: 0;
+        }
+        
+        .company-link-btn:hover {
+          background: #2563eb;
+          color: white;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
         }
       `}</style>
       
