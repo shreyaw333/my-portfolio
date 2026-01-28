@@ -1,0 +1,178 @@
+/* Hero Section - Fintech Professional Theme */
+
+.hero-section {
+  min-height: 70vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  padding: 4rem 2rem;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 70% 50%, rgba(16, 185, 129, 0.08) 0%, transparent 50%);
+}
+
+.hero-content {
+  text-align: center;
+  z-index: 10;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+.hero-text-container {
+  display: inline-block;
+  text-align: left;
+}
+
+.hero-greeting {
+  font-size: 1.5rem;
+  color: #94a3b8;
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-align: left;
+}
+
+.hero-name {
+  font-size: 5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.hero-roles {
+  font-size: 1.25rem;
+  color: #cbd5e1;
+  margin-bottom: 3rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.role-item {
+  color: #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.role-item:hover {
+  color: #3b82f6;
+  transform: translateY(-2px);
+}
+
+.role-separator {
+  color: #475569;
+  font-weight: 300;
+}
+
+.download-button {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.download-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.download-button:hover::before {
+  left: 100%;
+}
+
+.download-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+}
+
+.download-button:active {
+  transform: translateY(-1px);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hero-name {
+    font-size: 4rem;
+  }
+  
+  .hero-roles {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-greeting {
+    font-size: 1.25rem;
+  }
+  
+  .hero-name {
+    font-size: 3rem;
+  }
+  
+  .hero-roles {
+    font-size: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .role-separator {
+    display: none;
+  }
+  
+  .download-button {
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content {
+    padding: 0 1rem;
+  }
+  
+  .hero-name {
+    font-size: 2.5rem;
+  }
+  
+  .hero-roles {
+    font-size: 0.9rem;
+  }
+  
+  .download-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}

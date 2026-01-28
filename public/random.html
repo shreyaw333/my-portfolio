@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Management App - System Architecture</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #1e293b;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #64748b;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+        
+        .step {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+            border-left: 4px solid;
+        }
+        
+        .step-1 { border-left-color: #3b82f6; }
+        .step-2 { border-left-color: #a855f7; }
+        .step-3 { border-left-color: #10b981; }
+        .step-4 { border-left-color: #f97316; }
+        .step-5 { border-left-color: #6366f1; }
+        
+        .step-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .step-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+        
+        .icon-1 { background: #dbeafe; color: #3b82f6; }
+        .icon-2 { background: #f3e8ff; color: #a855f7; }
+        .icon-3 { background: #d1fae5; color: #10b981; }
+        .icon-4 { background: #fed7aa; color: #f97316; }
+        .icon-5 { background: #e0e7ff; color: #6366f1; }
+        
+        .step-content h3 {
+            color: #1e293b;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .step-content p {
+            color: #64748b;
+            margin-bottom: 15px;
+        }
+        
+        .tech-box {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .tech-box .tech-title {
+            font-family: 'Courier New', monospace;
+            color: #334155;
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+        
+        .tech-box .tech-desc {
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+        
+        .arrow {
+            text-align: center;
+            font-size: 3rem;
+            color: #cbd5e1;
+            margin: 10px 0;
+        }
+        
+        .tech-stack {
+            background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+        
+        .tech-stack h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .tech-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 6px;
+        }
+        
+        .tech-card h4 {
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+        
+        .tech-card ul {
+            list-style: none;
+            font-size: 0.9rem;
+            color: #e2e8f0;
+        }
+        
+        .tech-card li {
+            margin-bottom: 6px;
+        }
+        
+        .benefits {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        
+        .benefits h3 {
+            color: #1e3a8a;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+        
+        .benefits ul {
+            list-style: none;
+        }
+        
+        .benefits li {
+            margin-bottom: 15px;
+            color: #334155;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .benefits .check {
+            color: #3b82f6;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .benefits strong {
+            color: #1e293b;
+        }
+        
+        .api-endpoints {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .endpoint {
+            background: #f8fafc;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .endpoint-path {
+            font-family: 'Courier New', monospace;
+            color: #334155;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+        
+        .endpoint-desc {
+            color: #64748b;
+            font-size: 0.8rem;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Volunteer Management App</h1>
+        <p class="subtitle">System Architecture Overview</p>
+        
+        <div class="step step-1">
+            <div class="step-header">
+                <div class="step-icon icon-1">🌐</div>
+                <div class="step-content">
+                    <h3>Step 1: Volunteer Signup</h3>
+                    <p>Volunteers fill out signup form on WordPress website</p>
+                    <div class="tech-box">
+                        <div class="tech-title">WordPress + Gravity Forms Plugin</div>
+                        <div class="tech-desc">Collects: Name, Email, Phone, Skills, Availability, etc.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow">↓</div>
+        
+        <div class="step step-2">
+            <div class="step-header">
+                <div class="step-icon icon-2">⚡</div>
+                <div class="step-content">
+                    <h3>Step 2: Data Transfer (Zapier)</h3>
+                    <p>Automatically sends form data to your backend when submitted</p>
+                    <div class="tech-box">
+                        <div class="tech-title">Zapier Automation</div>
+                        <div class="tech-desc">Trigger: New Gravity Forms submission → Action: POST to API</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow">↓</div>
+        
+        <div class="step step-3">
+            <div class="step-header">
+                <div class="step-icon icon-3">🖥️</div>
+                <div class="step-content">
+                    <h3>Step 3: Backend API (Node.js + Express)</h3>
+                    <p>Processes data, creates user accounts, manages authentication</p>
+                    <div class="api-endpoints">
+                        <div class="endpoint">
+                            <div class="endpoint-path">POST /api/webhooks/gravity-forms</div>
+                            <div class="endpoint-desc">Receives volunteer data from Zapier</div>
+                        </div>
+                        <div class="endpoint">
+                            <div class="endpoint-path">POST /api/auth/login</div>
+                            <div class="endpoint-desc">Handles volunteer login</div>
+                        </div>
+                        <div class="endpoint">
+                            <div class="endpoint-path">GET /api/users/:id</div>
+                            <div class="endpoint-desc">Returns volunteer profile data</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow">↓</div>
+        
+        <div class="step step-4">
+            <div class="step-header">
+                <div class="step-icon icon-4">💾</div>
+                <div class="step-content">
+                    <h3>Step 4: Database (MongoDB)</h3>
+                    <p>Stores all volunteer information securely</p>
+                    <div class="tech-box">
+                        <div class="tech-title">MongoDB Database</div>
+                        <div class="tech-desc">Documents: users, volunteer_profiles, skills, availability</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow">↓</div>
+        
+        <div class="step step-5">
+            <div class="step-header">
+                <div class="step-icon icon-5">📱</div>
+                <div class="step-content">
+                    <h3>Step 5: Mobile App (React Native)</h3>
+                    <p>Volunteers login and view their profiles on iOS/Android</p>
+                    <div class="tech-box">
+                        <div class="tech-title">React Native App</div>
+                        <div class="tech-desc">Features: Login, Profile View, Contact Info, Skills & Availability</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tech-stack">
+            <h3>Technology Stack</h3>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h4>Frontend</h4>
+                    <ul>
+                        <li>• React Native (iOS/Android)</li>
+                        <li>• React Navigation</li>
+                        <li>• Axios for API calls</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <h4>Backend</h4>
+                    <ul>
+                        <li>• Node.js + Express</li>
+                        <li>• MongoDB Database</li>
+                        <li>• JWT Authentication</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <h4>Automation</h4>
+                    <ul>
+                        <li>• Zapier (Forms to API)</li>
+                        <li>• Gravity Forms Webhooks</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <h4>Deployment</h4>
+                    <ul>
+                        <li>• AWS/Railway (Backend)</li>
+                        <li>• App Store + Google Play</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="benefits">
+            <h3>Key Benefits</h3>
+            <ul>
+                <li>
+                    <span class="check">✓</span>
+                    <span><strong>Automated Data Flow:</strong> No manual data entry - volunteers automatically get accounts</span>
+                </li>
+                <li>
+                    <span class="check">✓</span>
+                    <span><strong>Mobile Access:</strong> Volunteers can view profiles anytime on their phones</span>
+                </li>
+                <li>
+                    <span class="check">✓</span>
+                    <span><strong>Scalable:</strong> System grows with your volunteer base</span>
+                </li>
+                <li>
+                    <span class="check">✓</span>
+                    <span><strong>Secure:</strong> Industry-standard authentication and data protection</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

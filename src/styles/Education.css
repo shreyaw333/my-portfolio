@@ -1,0 +1,229 @@
+/* Education Section - Fintech Professional Theme */
+
+.education-section {
+  padding: 4rem 2rem;
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  display: flex;
+  align-items: center;
+}
+
+.education-container {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.education-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  transition: all 0.3s ease;
+}
+
+.education-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.education-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.university-logo {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #f8fafc;
+  padding: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 2px solid rgba(59, 130, 246, 0.1);
+  flex-shrink: 0;
+}
+
+.education-info {
+  flex-grow: 1;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.degree-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
+}
+
+.university-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.university-name {
+  font-size: 1.05rem;
+  color: #3b82f6;
+  font-weight: 600;
+  margin: 0;
+}
+
+.degree-link {
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 6px;
+  padding: 0.3rem 0.6rem;
+  color: #3b82f6;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.degree-link:hover {
+  background: linear-gradient(135deg, #3b82f6, #10b981);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.education-details {
+  text-align: right;
+}
+
+.duration {
+  color: #64748b;
+  margin: 0 0 0.5rem 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.gpa {
+  color: #10b981;
+  font-weight: 700;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.coursework-section {
+  margin-top: 1rem;
+}
+
+.coursework-title {
+  color: #475569;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+.coursework-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-start;
+}
+
+.course-tag {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1));
+  color: #1e40af;
+  padding: 0.35rem 0.75rem;
+  border-radius: 16px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  transition: all 0.2s ease;
+}
+
+.course-tag:hover {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(16, 185, 129, 0.15));
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .education-section {
+    padding: 3rem 1.5rem;
+  }
+
+  .education-card {
+    padding: 1.5rem;
+  }
+
+  .education-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .university-logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .header-row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .degree-title {
+    font-size: 1.15rem;
+  }
+
+  .university-container {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .education-details {
+    text-align: center;
+    margin-top: 0.75rem;
+  }
+
+  .coursework-title {
+    text-align: center;
+  }
+
+  .coursework-tags {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .education-section {
+    padding: 2.5rem 1rem;
+  }
+
+  .education-card {
+    padding: 1.25rem;
+  }
+
+  .degree-title {
+    font-size: 1.05rem;
+  }
+
+  .university-name {
+    font-size: 0.95rem;
+  }
+
+  .course-tag {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.65rem;
+  }
+}
