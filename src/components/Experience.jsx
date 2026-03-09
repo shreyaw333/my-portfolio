@@ -11,10 +11,10 @@ const Experience = () => {
       duration: "May 2025 - Present",
       link: "",
       points: [
-        "Architected backend services for multi-agent AI assistant handling 50K+ daily API requests with 99.9% availability using Python, FastAPI, and microservices",
-        "Built production-grade infrastructure processing 100K+ requests daily with sub-100ms P95 latency through optimized caching and distributed systems",
-        "Implemented CI/CD pipelines with automated testing, reducing release cycles by 60% while maintaining security standards"
-      ]
+  "Architected full GCP backend infrastructure using Terraform, provisioning Cloud Run, CloudSQL, Pub/Sub, IAM, and Cloud Armor for 10,000+ users",
+  "Built Python FastAPI and Django REST APIs with optimized CloudSQL schema design, reducing API response times from 280ms to 90ms",
+  "Implemented event-driven architecture with Pub/Sub and Cloud Tasks for async processing, maintaining 99.9% uptime via CI/CD and GitHub Actions"
+]
     },
     {
       logo: "/lti.jpeg",

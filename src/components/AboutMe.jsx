@@ -15,23 +15,26 @@ const AboutMe = () => (
         
         <div className="about-content">
           <div className="about-text">
-            <p>
-            I'm a <span className="highlight">Software Engineer</span> with <span className="highlight">4+ years</span> building 
-            <span className="highlight"> scalable backend systems and ML/AI platforms</span>. I turn complex technical challenges into 
-            production-ready solutions using <span className="highlight">Python, Node.js, and cloud architectures</span>.
-          </p>
-
           <p>
-            Armed with my <span className="highlight">Master's from Purdue</span>, I've built systems serving 
-            <span className="highlight">10,000+ users with 99.9% uptime</span>. I love working with 
-            <span className="highlight">microservices, APIs, databases, and ML pipelines</span>—basically anything that makes software run fast and scale smoothly.
-          </p>
+  I'm a <span className="highlight">Software Engineer</span> with <span className="highlight">4+ years</span> building
+  <span className="highlight"> production-grade fullstack systems and GCP cloud infrastructure</span>. I take ownership
+  of everything from <span className="highlight">backend APIs and databases</span> to
+  <span className="highlight"> cloud architecture and deployment</span>.
+</p>
 
-          <p>
-            I don't just write code—I build the <span className="highlight">core infrastructure and intelligent systems</span> that power modern apps. 
-            Whether it's <span className="highlight">automated ML workflows</span> or <span className="highlight">high-performance data pipelines</span>, 
-            I create backend foundations that help businesses scale and leverage AI effectively.
-          </p>
+<p>
+  Armed with my <span className="highlight">Master's from Purdue</span>, I've architected systems on
+  <span className="highlight"> GCP serving 10,000+ users at 99.9% uptime</span>, designing
+  <span className="highlight"> object storage, Terraform IaC, Cloud Run, and event-driven pipelines</span> from the ground up.
+</p>
+
+<p>
+  I don't just write code, I build the <span className="highlight">core infrastructure</span> that powers modern apps.
+  Whether it's <span className="highlight">FastAPI and Django backends</span>,
+  <span className="highlight"> distributed data pipelines</span>, or
+  <span className="highlight"> full GCP environments provisioned with Terraform</span>,
+  I create foundations that scale reliably and ship fast.
+</p>
           </div>
         </div>
       </div>

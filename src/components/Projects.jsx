@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Video } from 'lucide-react';
+import { Github } from 'lucide-react';
 import '../styles/Projects.css';
 
 const Projects = () => {
@@ -11,7 +11,6 @@ const Projects = () => {
       image: "/instagram.jpeg",
       github: "https://github.com/shreyaw333/ml-pipeline-for-sma/",
       demo: "https://ml-pipeline-for-sma.vercel.app/",
-      video: "https://www.youtube.com/watch?v=vOx3vY1w4tM"
     },
     {
       title: "ML-Powered Ad Targeting & Revenue Optimization Engine",
@@ -20,7 +19,6 @@ const Projects = () => {
       image: "/targeting.png",
       github: "https://github.com/shreyaw333/ad-targeting-revenue-optimization/",
       demo: "https://ad-targeting-revenue-optimization.vercel.app/",
-      video: "https://www.youtube.com/watch?v=vOx3vY1w4tM"
     },
     {
       title: "LLM-Powered Financial Insights Bot",
@@ -29,7 +27,6 @@ const Projects = () => {
       image: "/financial-insights-bot.png",
       github: "https://github.com/shreyaw333/llm-financial-insights-bot/",
       demo: "https://llm-financial-insights-bot.vercel.app/",
-      video: "https://www.youtube.com/watch?v=vOx3vY1w4tM"
     },
     {
       title: "Real-Time Payment Processing Engine",
@@ -38,7 +35,6 @@ const Projects = () => {
       image: "/payment.png",
       github: "https://github.com/shreyaw333/realtime-payment-engine",
       demo: "https://realtime-payment-engine.vercel.app/",
-      video: "https://www.youtube.com/watch?v=vOx3vY1w4tM"
     },
     {
       title: "ML for Pinterest Trending Pins Recommender Platform",
@@ -47,7 +43,6 @@ const Projects = () => {
       image: "/pinterest-logo.png",
       github: "https://github.com/shreyaw333/pinterest-analytics/",
       demo: "https://pinterest-analytics.vercel.app/",
-      video: "https://www.youtube.com/watch?v=vOx3vY1w4tM"
     },
     {
       title: "Reddit Analytics Dashboard Pipeline",
@@ -56,7 +51,6 @@ const Projects = () => {
       image: "/reddit.png",
       github: "https://github.com/shreyaw333/Reddit_Data_Analysis/",
       demo: "https://reddit-data-analysis.vercel.app/",
-      video: "https://www.youtube.com/watch?v=vOx3vY1w4tM"
     },
     {
       title: "TuneVault",
@@ -65,7 +59,6 @@ const Projects = () => {
       image: "/tune.jpg",
       github: "https://github.com/shreyaw333/tune-vault",
       demo: "https://tune-vault-tau.vercel.app/",
-      video: "https://www.youtube.com/watch?v=vOx3vY1w4tM"
     }
   ];
 
@@ -95,15 +88,6 @@ const Projects = () => {
                           title="View on GitHub"
                         >
                           <Github size={18} />
-                        </button>
-                      )}
-                      {project.video && (
-                        <button 
-                          className="project-link-btn"
-                          onClick={() => window.open(project.video, '_blank')}
-                          title="Watch Demo Video"
-                        >
-                          <Video size={18} />
                         </button>
                       )}
                       {project.demo && (
